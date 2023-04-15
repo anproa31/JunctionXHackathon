@@ -1,17 +1,17 @@
-import 'package:blood_donation_app/pages/QR.dart';
-import 'package:blood_donation_app/pages/blood_history.dart';
-import 'package:blood_donation_app/pages/map.dart';
-import 'package:blood_donation_app/pages/profile.dart';
+import 'package:blood_donation_app/contributor/pages/QR.dart';
+import 'package:blood_donation_app/contributor/pages/blood_history.dart';
+import 'package:blood_donation_app/contributor/pages/map.dart';
+import 'package:blood_donation_app/contributor/pages/profile.dart';
 import 'package:flutter/material.dart';
 
-class UserPage extends StatefulWidget {
-  const UserPage({super.key});
+class ContributorPage extends StatefulWidget {
+  const ContributorPage({super.key});
 
   @override
-  State<UserPage> createState() => _UserPageState();
+  State<ContributorPage> createState() => _ContributorPageState();
 }
 
-class _UserPageState extends State<UserPage> {
+class _ContributorPageState extends State<ContributorPage> {
   int pageIndex = 0;
   final List<Widget> pages = [
     const ProfileScreen(),

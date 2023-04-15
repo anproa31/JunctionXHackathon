@@ -1,8 +1,9 @@
-import 'package:blood_donation_app/components/Notifications.dart';
-import 'package:blood_donation_app/pages/user_page.dart';
-import 'package:blood_donation_app/pages/sign_in.dart';
-import 'package:blood_donation_app/pages/sign_up.dart';
-import 'package:blood_donation_app/pages/starter.dart';
+                                      
+import 'package:blood_donation_app/administrator/pages/event_creation.dart';
+import 'package:blood_donation_app/contributor/pages/contributor_page.dart';
+import 'package:blood_donation_app/contributor/pages/sign_in.dart';
+import 'package:blood_donation_app/contributor/pages/sign_up.dart';
+import 'package:blood_donation_app/contributor/pages/starter.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       // home:  const HomePage(),
-      // home: const UserPage(),
-      home: const Notifications(),
+      // home: const ContributorPage(),
+      // home: const Notifications(),
+      home: const EventCreationScreen(),
     );
   }
 }

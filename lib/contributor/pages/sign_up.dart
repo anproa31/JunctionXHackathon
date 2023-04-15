@@ -1,4 +1,4 @@
-import 'package:blood_donation_app/pages/sign_in.dart';
+import 'package:blood_donation_app/contributor/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {

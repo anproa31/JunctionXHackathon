@@ -1,5 +1,5 @@
 
-import 'package:blood_donation_app/pages/user_page.dart';
+import 'package:blood_donation_app/contributor/pages/contributor_page.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -32,7 +32,7 @@ class _SignInFormState extends State<SignInForm> {
   final double _formProgress = 0;
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const UserPage()));
+        .push(MaterialPageRoute(builder: (context) => const ContributorPage()));
   }
 
   @override
