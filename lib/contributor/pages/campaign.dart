@@ -12,23 +12,28 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
-    return FlutterMap(
-    options: MapOptions(
-        center: latLng2.LatLng(51.509364, -0.128928),
-        zoom: 9.2,
-    ),
-    nonRotatedChildren: [
-        AttributionWidget.defaultWidget(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Campaign'),
+      ),
+      body: FlutterMap(
+        options: MapOptions(
+          center: latLng2.LatLng(51.509364, 0.0),
+          zoom: 5,
+        ),
+        nonRotatedChildren: [
+          AttributionWidget.defaultWidget(
             source: 'OpenStreetMap contributors',
             onSourceTapped: null,
-        ),
-    ],
-    children: [
-        TileLayer(
+          ),
+        ],
+        children: [
+          TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.example.app',
-        ),
-    ],
-);
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -42,6 +42,9 @@ dependencies:
   easy_sidemenu: ^0.4.1+1
   flutter_local_notifications: ^13.0.0
   flutter_launcher_icons: ^0.13.0
+  sidebarx: ^0.15.0
+  profile: ^0.0.1
+  input_history_text_field: ^0.2.0
   
 
 

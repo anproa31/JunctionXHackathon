@@ -1,6 +1,8 @@
 import 'package:blood_donation_app/contributor/pages/QR.dart';
 import 'package:blood_donation_app/contributor/pages/blood_history.dart';
-import 'package:blood_donation_app/contributor/pages/map.dart';
+import 'package:blood_donation_app/contributor/pages/blood_register_donation.dart';
+import 'package:blood_donation_app/contributor/pages/campaign.dart';
+import 'package:blood_donation_app/contributor/pages/emergency.dart';
 import 'package:blood_donation_app/contributor/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -12,121 +14,60 @@ class ContributorPage extends StatefulWidget {
 }
 
 class _ContributorPageState extends State<ContributorPage> {
-  int pageIndex = 0;
-  final List<Widget> pages = [
-    const ProfileScreen(),
-    const MapScreen(),
-    const QR(),
-    const BloodHistory(),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Giọt Hồng"),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            /** Do something */
-          },
-        ),
+        title: const Text('Contributor'),
       ),
-      body: pages[pageIndex],
-      bottomNavigationBar: buildMyNavBar(context),
-    );
-  }
-
-  Container buildMyNavBar(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ProfileU()));
+                },
+                child: const Text('Hồ Sơ')),
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const QR()));
+                },
+                child: const Text('QR')),
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Emergency()));
+                },
+                child: const Text('Khẩn cấp')),
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MapScreen()));
+                },
+                child: const Text('Chiến dịch hiến máu')),
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          BloodRegister(title: 'Date Picker')));
+                },
+                child: const Text('Đăng ký hiến máu')),
+            const SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => BloodHistory()));
+                },
+                child: const Text('Lịch sử hiến máu')),
+          ],
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 0;
-              });
-            },
-            icon: pageIndex == 0
-                ? const Icon(
-                    Icons.people_alt_rounded,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.people_alt_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 1;
-              });
-            },
-            icon: pageIndex == 1
-                ? const Icon(
-                    Icons.map_rounded,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.map_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 2;
-              });
-            },
-            icon: pageIndex == 2
-                ? const Icon(
-                    Icons.qr_code_rounded,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.qr_code_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 3;
-              });
-            },
-            icon: pageIndex == 3
-                ? const Icon(
-                    Icons.browse_gallery_rounded,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.browse_gallery_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-        ],
       ),
     );
   }

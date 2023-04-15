@@ -2,7 +2,7 @@
 import 'package:blood_donation_app/contributor/pages/contributor_page.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInAdScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,17 +32,22 @@ class _SignInFormState extends State<SignInForm> {
   final double _formProgress = 0;
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const ContributorPage()));
+        .push(MaterialPageRoute(builder: (context) => ContributorPage()));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Giọt Hồng'),
+      ),
+      body:
+    Form(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           LinearProgressIndicator(value: _formProgress),
-          Text('Sign In', style: Theme.of(context).textTheme.headlineMedium),
+          Text('Đăng nhập bệnh viện', style: Theme.of(context).textTheme.headlineMedium),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
@@ -80,6 +85,6 @@ class _SignInFormState extends State<SignInForm> {
           ),
         ],
       ),
-    );
+    ));
   }
 }

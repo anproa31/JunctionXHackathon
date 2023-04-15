@@ -1,8 +1,8 @@
-import 'package:blood_donation_app/contributor/pages/sign_in.dart';
+import 'package:blood_donation_app/administrator/pages/sign_in_ad.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignUpAdScreen extends StatelessWidget {
+  const SignUpAdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,56 +28,59 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  final _firstNameTextController = TextEditingController();
-  final _lastNameTextController = TextEditingController();
-  final _usernameTextController = TextEditingController();
+  final _nameHospitalTextController = TextEditingController();
+  final _phoneHospitalTextController = TextEditingController();
+  final _certificateHospitalTextController = TextEditingController();
   final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-  final List<String> _blood = ['A', 'B', 'O', 'AB'];
-  List <String> suffix = ['+', '-'];
-  String selectedSuffix = '+';
-  String _selectedBlood = 'A';
   final double _formProgress = 0;
-    void _navigateToNextScreen(BuildContext context) {
+  void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => SignInScreen()));
+        .push(MaterialPageRoute(builder: (context) => SignInAdScreen()));
   }
-
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Giọt Hồng'),
+      ),
+      body:
+    Form(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           LinearProgressIndicator(value: _formProgress),
-          Text('Sign up', style: Theme.of(context).textTheme.headlineMedium),
+          Text('Đăng kí bệnh viện',
+              style: Theme.of(context).textTheme.headlineMedium),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _firstNameTextController,
-              decoration: const InputDecoration(hintText: 'First name'),
+              controller: _nameHospitalTextController,
+              decoration: const InputDecoration(hintText: 'Tên bệnh viện'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _lastNameTextController,
-              decoration: const InputDecoration(hintText: 'Last name'),
+              controller: _phoneHospitalTextController,
+              decoration:
+                  const InputDecoration(hintText: 'Số điện thoại bệnh viện'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _usernameTextController,
-              decoration: const InputDecoration(hintText: 'Username'),
+              controller: _certificateHospitalTextController,
+              decoration:
+                  const InputDecoration(hintText: 'Chứng nhận bệnh viện'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _emailTextController,
-              decoration: const InputDecoration(hintText: 'Email'),
+              decoration: const InputDecoration(hintText: 'Email bệnh viện'),
             ),
           ),
           Padding(
@@ -87,41 +90,6 @@ class _SignUpFormState extends State<SignUpForm> {
               controller: _passwordTextController,
               decoration: const InputDecoration(hintText: 'Password'),
             ),
-          ),
-          Row(
-            children: [
-              const Text('Please enter your blood type: '),
-              const SizedBox(width: 10),
-              DropdownButton(
-                value: _selectedBlood,
-                items: _blood.map((String value) {
-                  return DropdownMenuItem(
-                    value: value,
-                    child: Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  );
-                }).toList(),
-                onChanged: (String? value) {
-                  setState(() {
-                    _selectedBlood = value!;
-                  });
-                },
-              ),
-              const SizedBox(width: 10),
-              DropdownButton(
-                value: selectedSuffix,
-                items: suffix.map((String value) {
-                  return DropdownMenuItem(
-                    value: value,
-                    child: Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  );
-                }).toList(),
-                onChanged: (String? value) {
-                  setState(() {
-                    selectedSuffix = value!;
-                  });
-                },
-              ),
-            ],
           ),
           TextButton(
             style: ButtonStyle(
@@ -145,6 +113,6 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ],
       ),
-    );
+    ));
   }
 }

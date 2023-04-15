@@ -10,8 +10,24 @@ class QR extends StatefulWidget {
 class _QRState extends State<QR> {
   @override
   Widget build(BuildContext context) {
-        return const Center(
-      child: Text('QR'),
-    );;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('QR'),
+      ),
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          const Text(
+            "QR hiến máu của bạn là:",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Image.asset('asset/R.png')
+        ],
+      ),
+    );
   }
 }

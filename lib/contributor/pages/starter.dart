@@ -1,18 +1,14 @@
-import 'package:blood_donation_app/contributor/pages/sign_in.dart';
-import 'package:blood_donation_app/contributor/pages/sign_up.dart';
+
+import 'package:blood_donation_app/option_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  void _navigateToSignInScreen(BuildContext context) {
+  void _navigateToScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => SignInScreen()));
+        .push(MaterialPageRoute(builder: (context) => const Options()));
   }
 
-  void _navigateToSignUpScreen(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const SignUpScreen()));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,28 +32,12 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    _navigateToSignInScreen(context);
+                    _navigateToScreen(context);
                   },
-                  child: const Text('Sign In'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    _navigateToSignUpScreen(context);
-                  },
-                  child: const Text('Sign Up'),
+                  child: const Text('Bắt đầu'),
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Forgot your password?'),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Reset Password'),
-                ),
-              ],
-            )
           ],
         ),
       ),

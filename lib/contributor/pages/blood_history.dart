@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BloodHistory extends StatefulWidget {
-  const BloodHistory({super.key});
+  const BloodHistory({Key? key}) : super(key: key);
 
   @override
   State<BloodHistory> createState() => _BloodHistoryState();
@@ -10,8 +10,10 @@ class BloodHistory extends StatefulWidget {
 class _BloodHistoryState extends State<BloodHistory> {
   @override
   Widget build(BuildContext context) {
-        return const Center(
-      child: Text('Blood History'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Blood History"),
+      ),
     );
   }
 }

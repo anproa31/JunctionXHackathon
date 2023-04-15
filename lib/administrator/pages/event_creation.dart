@@ -35,7 +35,7 @@ class _EventCreationFormState extends State<EventCreationForm> {
   final double _formProgress = 0;
   void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const ContributorPage()));
+        .push(MaterialPageRoute(builder: (context) => ContributorPage()));
   }
 
   @override
